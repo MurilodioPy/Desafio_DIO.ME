@@ -18,7 +18,7 @@ while True:
         print("Depositar")
         deposito = int(input("Digite o valor de depósito: "))
         if deposito <= 0:
-            print("Valor inválido!")
+            print("Valor inválido! Tente outro valor")
         else:
             saldo += deposito
             extrato += f"Dep: +R$ {deposito:,.2f} \n"
@@ -31,6 +31,8 @@ while True:
             print("Saldo insuficiente.")
         elif numero_saques >= LIMITE_SAQUES:
             print("Você excedeu o número de saques diários.")
+        elif sacar <= 0:
+            print("Valor inválido! Tente outro valor")
         else:
             numero_saques += 1
             saldo -= sacar
