@@ -2,7 +2,7 @@ menu = """
     [d] Depositar
     [s] Sacar
     [e] Extrato
-    [q] Sair
+    [q] Sair do caixa
 => """
 
 LIMITE = 500
@@ -13,7 +13,7 @@ banco_users = {}
 def banco():
   operacao = ""
   while (operacao != "q"):
-    name = input("Digite seu nome: ")
+    name = input("Digite seu nome: ").lower()
     if name not in users:
       new_user(name)
       banco_users[name] = {}
@@ -23,16 +23,12 @@ def banco():
       caixa(name)
     else:
       caixa(name)
-    operacao = input("Digite 'q' para sair ou enter pra continuar! ")
-    # reiniciando o dia do usuário
-    if operacao == "q":
-      banco_users[name]["numero_saques"] = 0
-        
-# Lista de usuários
+    operacao = input("Digite 'q' para sair do banco ou enter pra continuar! ")
+
+
 def new_user(user_name):
   users.append(user_name)
-    
-# operação de saque
+
 def sacar(user_name):
   valor_saque = int(input("Digite o valor de saque: "))
   if valor_saque > LIMITE:
@@ -47,8 +43,7 @@ def sacar(user_name):
     banco_users[user_name]["saldo"] -= valor_saque
     banco_users[user_name]["numero_saques"] += 1
     add_extrato(user_name, f"Saq: -R$ {valor_saque:,.2f} \n")
-      
-# operação de depósito
+
 def depositar(user_name):
   deposito = int(input("Digite o valor de depósito: "))
   if deposito <= 0:
@@ -56,17 +51,14 @@ def depositar(user_name):
   else:
     banco_users[user_name]["saldo"] += deposito
     add_extrato(user_name, f"Dep: +R$ {deposito:,.2f} \n")
-      
-# add ao extrato
+
 def add_extrato(user_name, texto):
   banco_users[user_name]["extrato"] += texto
 
-# visualização do extrato
 def view_extrato(user_name):
   print(f"Extrato da Conta: {user_name}\n")
   print(banco_users[user_name]["extrato"])
-    
-# operacao no caixa
+
 def caixa(name_user):
   sair = False
   while not sair:
@@ -79,8 +71,8 @@ def caixa(name_user):
       view_extrato(name_user)
     elif opcao == "q":
       sair = True
+      banco_users[name_user]["numero_saques"] = 0
     else:
       print("Operação inválida, favor selecione novamente.")
 
-# inicio das operações
 banco()
