@@ -4,6 +4,9 @@ www.dio.me
 #### Autores
 - [Gleyson Sampaio](https://github.com/glysns)
 
+#### Documentação JAVA DIO
+- [Documentação](https://felipe-silva-aguiar.gitbook.io/dio-java/gitbook/controle-de-fluxo/estruturas-excepcionais)
+
 ## Controle de Fluxo - Desafio
 
 Vamos exercitar todo o conteúdo apresentado no módulo de Controle de Fluxo codificando o seguinte cenário.
