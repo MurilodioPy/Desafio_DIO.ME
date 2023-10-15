@@ -1,0 +1,17 @@
+.card-container{
+  position: relative;
+  border: 2px solid #3e4357;
+  border-radius: 10px;
+
+  display: flex;
+  overflow: hidden;
+  margin-top: 10px;
+
+  width: 100%;
+}
+
+.card-img{
+  max-width: 400px;
+  /* max-height: 300px; */
+  width: 100%;
+}

@@ -15,21 +15,30 @@
   align-items: center;
 }
 
+.menu-bar-logo > a > img {
+  width: 20%;
+}
+
 .menu-bar-item{
   display: flex;
   margin: auto;
   align-items: center;
 }
 
-
 .menu-bar-item > ul{
   display: flex;
-  text-decoration: none;
-  list-style-type: none;
-
-
 }
 
-.menu-bar-item > ul > li{
+.menu-bar-item > ul > li {
+  color: #000;
+  font-family: "Segoe UI";
+}
+
+.menu-bar-item > ul > li > a{
+  text-decoration: none;
   margin: 20px;
+}
+
+.menu-bar-item > ul > li:hover{
+  font-weight: 700;
 }
